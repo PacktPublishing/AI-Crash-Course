@@ -17,7 +17,7 @@ for i in range(N):
         if np.random.rand() <= conversion_rates[j]:
             X[i,j] = 1
 
-# Implementing a Random Strategy and Thompson Sampling
+# Implementing Random Selection and Thompson Sampling
 strategies_selected_rs = []
 strategies_selected_ts = []
 total_reward_rs = 0
@@ -25,7 +25,7 @@ total_reward_ts = 0
 numbers_of_rewards_1 = [0] * d
 numbers_of_rewards_0 = [0] * d
 for n in range(0, N):
-    # Random Strategy
+    # Random Selection
     strategy_rs = random.randrange(d)
     strategies_selected_rs.append(strategy_rs)
     reward_rs = X[n, strategy_rs]
@@ -47,9 +47,7 @@ for n in range(0, N):
     total_reward_ts = total_reward_ts + reward_ts
 
 # Computing the Absolute and Relative Return
-absolute_return = (total_reward_ts - total_reward_rs) * 100
 relative_return = (total_reward_ts - total_reward_rs) / total_reward_rs * 100
-print("Absolute Return: {:.0f} $".format(absolute_return))
 print("Relative Return: {:.0f} %".format(relative_return))
 
 # Plotting the Histogram of Selections
