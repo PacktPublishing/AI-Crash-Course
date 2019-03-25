@@ -1,5 +1,4 @@
-# Artificial Intelligence for Business
-# Optimizing Warehouse Flows with Q-Learning
+# AI for Logistics - Robots in a warehouse
 
 # Importing the libraries
 import numpy as np
