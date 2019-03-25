@@ -7,7 +7,7 @@ import numpy as np
 gamma = 0.75
 alpha = 0.9
 
-# PART 1 - DEFINING THE ENVIRONMENT
+# PART 1 - BUILDING THE ENVIRONMENT
 
 # Defining the states
 location_to_state = {'A': 0,
