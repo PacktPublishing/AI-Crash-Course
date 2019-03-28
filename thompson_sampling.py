@@ -46,7 +46,7 @@ for n in range(0, N):
     strategies_selected_ts.append(strategy_ts)
     total_reward_ts = total_reward_ts + reward_ts
 
-# Computing the Absolute and Relative Return
+# Computing the Relative Return
 relative_return = (total_reward_ts - total_reward_rs) / total_reward_rs * 100
 print("Relative Return: {:.0f} %".format(relative_return))
 
