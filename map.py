@@ -30,7 +30,7 @@ n_points = 0
 length = 0
 
 # Getting our AI, which we call "brain", and that contains our neural network that represents our Q-function
-brain = Dqn(5,3,0.9)
+brain = Dqn(4,3,0.9)
 action2rotation = [0,20,-20]
 last_reward = 0
 
@@ -126,7 +126,7 @@ class Game(Widget):
         xx = goal_x - self.car.x
         yy = goal_y - self.car.y
         orientation = Vector(*self.car.velocity).angle((xx,yy))/180.
-        last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation, -orientation]
+        last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation]
         action = brain.update(last_reward, last_signal)
         rotation = action2rotation[action]
         self.car.move(rotation)
