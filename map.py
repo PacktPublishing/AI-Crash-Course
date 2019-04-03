@@ -33,7 +33,6 @@ length = 0
 brain = Dqn(5,3,0.9)
 action2rotation = [0,20,-20]
 last_reward = 0
-scores = []
 
 # Initializing the map
 first_update = True
@@ -113,7 +112,6 @@ class Game(Widget):
 
         global brain
         global last_reward
-        global scores
         global last_distance
         global goal_x
         global goal_y
@@ -130,7 +128,6 @@ class Game(Widget):
         orientation = Vector(*self.car.velocity).angle((xx,yy))/180.
         last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation, -orientation]
         action = brain.update(last_reward, last_signal)
-        scores.append(brain.score())
         rotation = action2rotation[action]
         self.car.move(rotation)
         distance = np.sqrt((self.car.x - goal_x)**2 + (self.car.y - goal_y)**2)
