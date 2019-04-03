@@ -41,6 +41,7 @@ def init():
     global sand # sand is an array that has as many cells as our graphic interface has pixels. Each cell has a one if there is sand, 0 otherwise.
     global goal_x # x-coordinate of the goal (where the car has to go, that is the airport or the downtown)
     global goal_y # y-coordinate of the goal (where the car has to go, that is the airport or the downtown)
+    global first_update # map initializer
     sand = np.zeros((longueur,largeur)) # initializing the sand array with only zeros
     goal_x = 20 # the goal to reach is at the upper left of the map (the x-coordinate is 20 and not 0 because the car gets bad reward if it touches the wall)
     goal_y = largeur - 20 # the goal to reach is at the upper left of the map (y-coordinate)
