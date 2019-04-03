@@ -1,4 +1,6 @@
-# Self Driving Car
+# AI for Autonomous Vehicles - Build a Self-Driving Car
+
+# Building the Environment
 
 # Importing the libraries
 import numpy as np
