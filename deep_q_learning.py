@@ -88,9 +88,6 @@ class Dqn():
             del self.reward_window[0]
         return action
     
-    def score(self):
-        return sum(self.reward_window)/(len(self.reward_window)+1.)
-    
     def save(self):
         torch.save({'state_dict': self.model.state_dict(),
                     'optimizer' : self.optimizer.state_dict(),
