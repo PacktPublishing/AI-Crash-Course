@@ -34,7 +34,6 @@ length = 0 # the length of the last drawing
 brain = Dqn(5,3,0.9) # 5 sensors, 3 actions, gamma = 0.9
 action2rotation = [0,20,-20] # action = 0 => no rotation, action = 1 => rotate 20 degres, action = 2 => rotate -20 degres
 last_reward = 0 # initializing the last reward
-scores = [] # initializing the mean score curve (sliding window of the rewards) with respect to time
 
 # Initializing the map
 first_update = True # using this trick to initialize the map only once
@@ -113,7 +112,6 @@ class Game(Widget):
 
         global brain # specifying the global variables (the brain of the car, that is our AI)
         global last_reward # specifying the global variables (the last reward)
-        global scores # specifying the global variables (the means of the rewards)
         global last_distance # specifying the global variables (the last distance from the car to the goal)
         global goal_x # specifying the global variables (x-coordinate of the goal)
         global goal_y # specifying the global variables (y-coordinate of the goal)
@@ -130,7 +128,6 @@ class Game(Widget):
         orientation = Vector(*self.car.velocity).angle((xx,yy))/180. # direction of the car with respect to the goal (if the car is heading perfectly towards the goal, then orientation = 0)
         last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation, -orientation] # our input state vector, composed of the three signals received by the three sensors, plus the orientation and -orientation
         action = brain.update(last_reward, last_signal) # playing the action from our ai (the object brain of the dqn class)
-        scores.append(brain.score()) # appending the score (mean of the last 100 rewards to the reward window)
         rotation = action2rotation[action] # converting the action played (0, 1 or 2) into the rotation angle (0°, 20° or -20°)
         self.car.move(rotation) # moving the car according to this last rotation angle
         distance = np.sqrt((self.car.x - goal_x)**2 + (self.car.y - goal_y)**2) # getting the new distance between the car and the goal right after the car moved
@@ -226,8 +223,6 @@ class CarApp(App):
     def save(self, obj): # save button
         print("saving brain...")
         brain.save()
-        plt.plot(scores)
-        plt.show()
 
     def load(self, obj): # load button
         print("loading last saved brain...")
