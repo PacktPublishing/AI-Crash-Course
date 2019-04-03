@@ -160,6 +160,7 @@ class Game(Widget):
         if distance < 100:
             goal_x = self.width-goal_x
             goal_y = self.height-goal_y
+
         last_distance = distance
 
 # Adding the painting tools
