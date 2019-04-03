@@ -31,7 +31,7 @@ n_points = 0 # the total number of points in the last drawing
 length = 0 # the length of the last drawing
 
 # Getting our AI, which we call "brain", and that contains our neural network that represents our Q-function
-brain = Dqn(5,3,0.9) # 5 sensors, 3 actions, gamma = 0.9
+brain = Dqn(4,3,0.9) # 4 inputs, 3 actions, gamma = 0.9
 action2rotation = [0,20,-20] # action = 0 => no rotation, action = 1 => rotate 20 degres, action = 2 => rotate -20 degres
 last_reward = 0 # initializing the last reward
 
@@ -127,7 +127,7 @@ class Game(Widget):
         xx = goal_x - self.car.x # difference of x-coordinates between the goal and the car
         yy = goal_y - self.car.y # difference of y-coordinates between the goal and the car
         orientation = Vector(*self.car.velocity).angle((xx,yy))/180. # direction of the car with respect to the goal (if the car is heading perfectly towards the goal, then orientation = 0)
-        last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation, -orientation] # our input state vector, composed of the three signals received by the three sensors, plus the orientation and -orientation
+        last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation] # our input state vector, composed of the three signals received by the three sensors, plus the orientation
         action = brain.update(last_reward, last_signal) # playing the action from our ai (the object brain of the dqn class)
         rotation = action2rotation[action] # converting the action played (0, 1 or 2) into the rotation angle (0°, 20° or -20°)
         self.car.move(rotation) # moving the car according to this last rotation angle
