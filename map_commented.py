@@ -47,7 +47,7 @@ def init():
     goal_y = largeur - 20 # the goal to reach is at the upper left of the map (y-coordinate)
     first_update = False # trick to initialize the map only once
 
-# Initializing the last distance
+# Initializing the last distance from the car to the goal
 last_distance = 0
 
 # Creating the car class (to understand "NumericProperty" and "ReferenceListProperty", see kivy tutorials: https://kivy.org/docs/tutorials/pong.html)
@@ -142,7 +142,7 @@ class Game(Widget):
         else: # otherwise
             self.car.velocity = Vector(6, 0).rotate(self.car.angle) # it goes to a normal speed (speed = 6)
             last_reward = -0.2 # and it gets bad reward (-0.2)
-            if distance < last_distance: # however if it getting close to the goal
+            if distance < last_distance: # however if it is getting closer to the goal
                 last_reward = 0.1 # it still gets slightly positive reward 0.1
 
         if self.car.x < 10: # if the car is in the left edge of the frame
