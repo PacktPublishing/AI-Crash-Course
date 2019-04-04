@@ -46,7 +46,7 @@ def init():
     goal_y = largeur - 20
     first_update = False
 
-# Initializing the last distance
+# Initializing the last distance from the car to the goal
 last_distance = 0
 
 # Creating the car class
