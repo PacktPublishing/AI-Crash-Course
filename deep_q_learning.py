@@ -2,8 +2,8 @@
 
 # Importing the libraries
 
-import random
 import os
+import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
