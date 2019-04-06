@@ -2,7 +2,6 @@
 
 # Importing the libraries
 
-import numpy as np
 import random
 import os
 import torch
