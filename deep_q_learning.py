@@ -49,7 +49,6 @@ class Dqn(object):
     
     def __init__(self, input_size, nb_action, gamma):
         self.gamma = gamma
-        self.reward_window = []
         self.model = Network(input_size, nb_action)
         self.memory = ReplayMemory(100000)
         self.optimizer = optim.Adam(self.model.parameters(), lr = 0.001)
@@ -81,9 +80,6 @@ class Dqn(object):
         self.last_action = action
         self.last_state = new_state
         self.last_reward = reward
-        self.reward_window.append(reward)
-        if len(self.reward_window) > 1000:
-            del self.reward_window[0]
         return action
     
     def save(self):
