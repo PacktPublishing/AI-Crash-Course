@@ -62,10 +62,10 @@ class Dqn(object):
         return action.data[0,0]
     
     def learn(self, batch_states, batch_actions, batch_rewards, batch_next_states):
-        outputs = self.model(batch_states).gather(1, batch_actions.unsqueeze(1)).squeeze(1)
-        next_outputs = self.model(batch_next_states).detach().max(1)[0]
-        targets = batch_rewards + self.gamma * next_outputs
-        td_loss = F.smooth_l1_loss(outputs, targets)
+        batch_outputs = self.model(batch_states).gather(1, batch_actions.unsqueeze(1)).squeeze(1)
+        batch_next_outputs = self.model(batch_next_states).detach().max(1)[0]
+        batch_targets = batch_rewards + self.gamma * batch_next_outputs
+        td_loss = F.smooth_l1_loss(batch_outputs, batch_targets)
         self.optimizer.zero_grad()
         td_loss.backward()
         self.optimizer.step()
