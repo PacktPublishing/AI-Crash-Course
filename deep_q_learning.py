@@ -70,7 +70,7 @@ class Dqn(object):
         td_loss.backward()
         self.optimizer.step()
     
-    def update(self, reward, new_signal):
+    def update(self, last_reward, new_signal):
         new_state = torch.Tensor(new_signal).float().unsqueeze(0)
         self.memory.push((self.last_state, torch.LongTensor([int(self.last_action)]), torch.Tensor([self.last_reward]), new_state))
         action = self.select_action(new_state)
@@ -79,7 +79,7 @@ class Dqn(object):
             self.learn(batch_states, batch_actions, batch_rewards, batch_next_states)
         self.last_action = action
         self.last_state = new_state
-        self.last_reward = reward
+        self.last_reward = last_reward
         return action
     
     def save(self):
