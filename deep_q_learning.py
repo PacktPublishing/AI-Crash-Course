@@ -70,8 +70,8 @@ class Dqn(object):
         td_loss.backward()
         self.optimizer.step()
     
-    def update(self, new_reward, new_signal):
-        new_state = torch.Tensor(new_signal).float().unsqueeze(0)
+    def update(self, new_state, new_reward):
+        new_state = torch.Tensor(new_state).float().unsqueeze(0)
         self.memory.push((self.last_state, torch.LongTensor([int(self.last_action)]), torch.Tensor([self.last_reward]), new_state))
         new_action = self.select_action(new_state)
         if len(self.memory.memory) > 100:
