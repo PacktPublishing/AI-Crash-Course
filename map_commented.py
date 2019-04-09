@@ -33,7 +33,7 @@ length = 0 # the length of the last drawing
 # Getting our AI, which we call "brain", and that contains our neural network that represents our Q-function
 brain = Dqn(4,3,0.9) # 4 inputs, 3 actions, gamma = 0.9
 action2rotation = [0,20,-20] # action = 0 => no rotation, action = 1 => rotate 20 degres, action = 2 => rotate -20 degres
-reward = 0 # initializing the last reward
+reward = 0 # initializing the reward received after reaching a new state
 
 # Initializing the map
 first_update = True # using this trick to initialize the map only once
