@@ -33,7 +33,7 @@ length = 0 # the length of the last drawing
 # Getting our AI, which we call "brain", and that contains our neural network that represents our Q-function
 brain = Dqn(4,3,0.9) # 4 inputs, 3 actions, gamma = 0.9
 action2rotation = [0,20,-20] # action = 0 => no rotation, action = 1 => rotate 20 degres, action = 2 => rotate -20 degres
-last_reward = 0 # initializing the last reward
+reward = 0 # initializing the last reward
 
 # Initializing the map
 first_update = True # using this trick to initialize the map only once
@@ -112,7 +112,7 @@ class Game(Widget):
     def update(self, dt): # the big update function that updates everything that needs to be updated at each discrete time t when reaching a new state (getting new signals from the sensors)
 
         global brain # specifying the global variables (the brain of the car, that is our AI)
-        global last_reward # specifying the global variables (the last reward)
+        global reward # specifying the global variables (the last reward received)
         global last_distance # specifying the global variables (the last distance from the car to the goal)
         global goal_x # specifying the global variables (x-coordinate of the goal)
         global goal_y # specifying the global variables (y-coordinate of the goal)
@@ -127,8 +127,8 @@ class Game(Widget):
         xx = goal_x - self.car.x # difference of x-coordinates between the goal and the car
         yy = goal_y - self.car.y # difference of y-coordinates between the goal and the car
         orientation = Vector(*self.car.velocity).angle((xx,yy))/180. # direction of the car with respect to the goal (if the car is heading perfectly towards the goal, then orientation = 0)
-        last_signal = [self.car.signal1, self.car.signal2, self.car.signal3, orientation] # our input state vector, composed of the three signals received by the three sensors, plus the orientation
-        action = brain.update(last_reward, last_signal) # playing the action from our ai (the object brain of the dqn class)
+        state = [orientation, self.car.signal1, self.car.signal2, self.car.signal3] # our input state vector, composed of the orientation plus the three signals received by the three sensors
+        action = brain.update(state, reward) # updating the weights of the neural network in our ai and playing a new action
         rotation = action2rotation[action] # converting the action played (0, 1 or 2) into the rotation angle (0°, 20° or -20°)
         self.car.move(rotation) # moving the car according to this last rotation angle
         distance = np.sqrt((self.car.x - goal_x)**2 + (self.car.y - goal_y)**2) # getting the new distance between the car and the goal right after the car moved
@@ -138,25 +138,25 @@ class Game(Widget):
 
         if sand[int(self.car.x),int(self.car.y)] > 0: # if the car is on the sand
             self.car.velocity = Vector(1, 0).rotate(self.car.angle) # it is slowed down (speed = 1)
-            last_reward = -1 # and reward = -1
+            reward = -1 # and reward = -1
         else: # otherwise
             self.car.velocity = Vector(6, 0).rotate(self.car.angle) # it goes to a normal speed (speed = 6)
-            last_reward = -0.2 # and it gets bad reward (-0.2)
+            reward = -0.2 # and it gets a bad reward of -0.2
             if distance < last_distance: # however if it is getting closer to the goal
-                last_reward = 0.1 # it still gets slightly positive reward 0.1
+                reward = 0.1 # it still gets a slightly positive reward of 0.1
 
         if self.car.x < 10: # if the car is in the left edge of the frame
-            self.car.x = 10 # it is not slowed down
-            last_reward = -1 # but it gets bad reward -1
+            self.car.x = 10 # it comes back 10 pixels away from the edge
+            reward = -1 # and it gets a bad reward of -1
         if self.car.x > self.width-10: # if the car is in the right edge of the frame
-            self.car.x = self.width-10 # it is not slowed down
-            last_reward = -1 # but it gets bad reward -1
+            self.car.x = self.width-10 # it comes back 10 pixels away from the edge
+            reward = -1 # and it gets a bad reward of -1
         if self.car.y < 10: # if the car is in the bottom edge of the frame
-            self.car.y = 10 # it is not slowed down
-            last_reward = -1 # but it gets bad reward -1
+            self.car.y = 10 # it comes back 10 pixels away from the edge
+            reward = -1 # and it gets a bad reward of -1
         if self.car.y > self.height-10: # if the car is in the upper edge of the frame
-            self.car.y = self.height-10 # it is not slowed down
-            last_reward = -1 # but it gets bad reward -1
+            self.car.y = self.height-10 # it comes back 10 pixels away from the edge
+            reward = -1 # and it gets a bad reward of -1
 
         if distance < 100: # when the car reaches its goal
             goal_x = self.width - goal_x # the goal becomes the bottom right corner of the map (the downtown), and vice versa (updating of the x-coordinate of the goal)
