@@ -77,8 +77,8 @@ class Dqn(object):
         if len(self.memory.memory) > 100:
             batch_states, batch_actions, batch_rewards, batch_next_states = self.memory.sample(100)
             self.learn(batch_states, batch_actions, batch_rewards, batch_next_states)
-        self.last_action = new_action
         self.last_state = new_state
+        self.last_action = new_action
         self.last_reward = new_reward
         return new_action
     
