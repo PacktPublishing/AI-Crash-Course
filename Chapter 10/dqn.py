@@ -1,4 +1,4 @@
-# Artificial Intelligence for Business - Case Study 2
+# AI for Business - Minimize cost with Deep Q-Learning
 # Implementing Deep Q-Learning with Experience Replay
 
 # Importing the libraries
