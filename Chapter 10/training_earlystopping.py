@@ -1,5 +1,5 @@
-# Artificial Intelligence for Business - Case Study 2
-# Training the AI
+# AI for Business - Minimize cost with Deep Q-Learning
+# Training the AI with Early Stopping
 
 # Installing Keras
 # conda install -c conda-forge keras
