@@ -1,5 +1,5 @@
-# Artificial Intelligence for Business - Case Study 2
-# Building the Brain
+# AI for Business - Minimize cost with Deep Q-Learning
+# Building the Brain without Dropout
 
 # Importing the libraries
 from keras.layers import Input, Dense
