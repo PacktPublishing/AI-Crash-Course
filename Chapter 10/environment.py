@@ -1,4 +1,4 @@
-# Artificial Intelligence for Business - Case Study 2
+# AI for Business - Minimize cost with Deep Q-Learning
 # Building the Environment
 
 # Importing the libraries
