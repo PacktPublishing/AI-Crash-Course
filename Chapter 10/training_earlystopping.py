@@ -6,7 +6,7 @@ import os
 import numpy as np
 import random as rn
 import environment
-import brain_nodropout
+import brain_dropout
 import dqn
 
 # Setting seeds for reproducibility
@@ -27,7 +27,7 @@ temperature_step = 1.5
 env = environment.Environment(optimal_temperature = (18.0, 24.0), initial_month = 0, initial_number_users = 20, initial_rate_data = 30)
 
 # BUILDING THE BRAIN BY SIMPLY CREATING AN OBJECT OF THE BRAIN CLASS
-brain = brain_nodropout.Brain(learning_rate = 0.00001, number_actions = number_actions)
+brain = brain_dropout.Brain(learning_rate = 0.00001, number_actions = number_actions)
 
 # BUILDING THE DQN MODEL BY SIMPLY CREATING AN OBJECT OF THE DQN CLASS
 dqn = dqn.DQN(max_memory = max_memory, discount = 0.9)
