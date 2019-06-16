@@ -73,7 +73,7 @@ if (env.train):
                     direction = 1
                 energy_ai = abs(action - direction_boundary) * temperature_step
             # UPDATING THE ENVIRONMENT AND REACHING THE NEXT STATE
-            next_state, reward, game_over = env.update_env(direction, energy_ai, (new_month + int(timestep/(30*24*60)) % 12))
+            next_state, reward, game_over = env.update_env(direction, energy_ai, ( new_month + int(timestep/(30*24*60)) ) % 12)
             total_reward += reward
             # STORING THIS NEW TRANSITION INTO THE MEMORY
             dqn.remember([current_state, action, reward, next_state], game_over)
