@@ -46,5 +46,5 @@ y_test = yscaler.inverse_transform(y_test)
 prediction = yscaler.inverse_transform(model.predict(X_test))
 
 # Computing the accuracy
-accuracy = 1 - abs(prediction - y_test)/y_test * 100
-print(np.mean(accuracy))
+error = abs(prediction - y_test)/y_test
+print(np.mean(error))
