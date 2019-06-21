@@ -3,8 +3,9 @@
 # Importing the libraries
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler
 import keras
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
 from keras.layers import Dense, Dropout
 from keras.models import Sequential
 from keras.optimizers import Adam
@@ -18,7 +19,6 @@ X = X[:, np.r_[0:13,14:18]]
 y = dataset.iloc[:, 2].values
 
 # Splitting the dataset into a training set and a test set
-from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
 # Scaling the features
