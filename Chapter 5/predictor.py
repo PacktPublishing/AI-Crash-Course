@@ -45,6 +45,6 @@ model.fit(X_train, y_train, batch_size = 32, epochs = 100, validation_data = (X_
 y_test = yscaler.inverse_transform(y_test)
 prediction = yscaler.inverse_transform(model.predict(X_test))
 
-# Computing the accuracy
+# Computing the error rate
 error = abs(prediction - y_test)/y_test
 print(np.mean(error))
