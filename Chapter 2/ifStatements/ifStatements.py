@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  2 21:15:12 2019
-
-@author: janwa
-"""
+#Introduction to If Statements
 
 a = 5
 if a > 0:
