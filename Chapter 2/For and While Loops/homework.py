@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  3 16:57:09 2019
-
-@author: janwa
-"""
+#Exercise for For and While Loops: Homework Solution
 
 n = 5                       # the number factorial of which we are searching for
 
