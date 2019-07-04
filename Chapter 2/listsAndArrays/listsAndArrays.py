@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  2 21:07:57 2019
-
-@author: janwa
-"""
+#Introduction to Lists and Arrays
 
 L1 = list()
 L2 = []
