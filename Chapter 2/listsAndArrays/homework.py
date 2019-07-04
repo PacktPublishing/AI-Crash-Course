@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  3 17:32:46 2019
-
-@author: janwa
-"""
+#Exercise for Lists and Arrays: Homework Solution
 
 import numpy as np                          # we import the Numpy library and give it abbreviation "np"
 
