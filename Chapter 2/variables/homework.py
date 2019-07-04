@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  3 17:37:16 2019
-
-@author: janwa
-"""
+#Exercise for Variables: Homework Solution
 
 a = 3               # we will raise this number to a power
 b = 4               # this is the power to which we will raise "a"
