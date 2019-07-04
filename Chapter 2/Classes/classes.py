@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  2 21:22:07 2019
-
-@author: janwa
-"""
+#Introduction to classes
 
 class Bot():
     
