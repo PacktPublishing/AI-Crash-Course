@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  3 17:24:03 2019
-
-@author: janwa
-"""
+#Exercise for If Statements: Homework Solution
 
 a = 12                                          # we will check the divisibility of this number by 3
 
