@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  3 19:00:59 2019
-
-@author: janwa
-"""
+# Exercise for Classes: Homework Solution
 
 class Car():                                                    # we initialize a class called "Car"
     
