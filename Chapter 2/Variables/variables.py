@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  2 20:46:10 2019
-
-@author: janwa
-"""
+#Introduction to Variables
 
 x = 2
 
