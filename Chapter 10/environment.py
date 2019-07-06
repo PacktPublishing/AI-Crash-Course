@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May  2 13:22:25 2019
-
-@author: janwa
-"""
+#Hardest Game Ever AI: Environment
 
 import pygame
 import numpy as np
