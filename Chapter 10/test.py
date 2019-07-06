@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat May  4 17:46:08 2019
-
-@author: janwa
-"""
+#Hardest Game Ever AI: Test
 
 import pygame
 import cv2
