@@ -1,4 +1,9 @@
-#Hardest Game Ever AI: Environment
+# -*- coding: utf-8 -*-
+"""
+Created on Thu May  2 13:22:25 2019
+
+@author: janwa
+"""
 
 import pygame
 import numpy as np
@@ -579,56 +584,57 @@ class Environment(object):
         pygame.display.flip()
         
         return state, reward, gameOver
-    
-env = Environment(1,1,1, 5)
-up = False
-down = False
-right = False
-left = False
-while True:
-    if env.editEnabled:
-        
-        env.edit()
-    else:
-        
-        xDir = 0
-        yDir = 0
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                quit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    down = False
-                    up = True
-                if event.key == pygame.K_DOWN:
-                    up = False
-                    down = True
-                if event.key == pygame.K_RIGHT:
-                    right = True
-                    left = False
-                if event.key == pygame.K_LEFT:
-                    right = False
-                    left = True
-                if event.key == pygame.K_e:
-                    env.editEnabled = True
-                    print('')
-                    print('You have entered edit mode')
-                    env.reset()
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_UP:
-                    up = False
-                if event.key == pygame.K_DOWN:
-                    down = False
-                if event.key == pygame.K_RIGHT:
-                    right = False
-                if event.key == pygame.K_LEFT:
-                    left = False
-        if up:
-            yDir = -1
-        elif down:
-            yDir = 1
-        if right:
-            xDir = 1
-        elif left:
-            xDir = -1
-        env.step(xDir, yDir)
+
+if __name__  == '__main__':
+    env = Environment(1,1,1, 5)
+    up = False
+    down = False
+    right = False
+    left = False
+    while True:
+        if env.editEnabled:
+            
+            env.edit()
+        else:
+            
+            xDir = 0
+            yDir = 0
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_UP:
+                        down = False
+                        up = True
+                    if event.key == pygame.K_DOWN:
+                        up = False
+                        down = True
+                    if event.key == pygame.K_RIGHT:
+                        right = True
+                        left = False
+                    if event.key == pygame.K_LEFT:
+                        right = False
+                        left = True
+                    if event.key == pygame.K_e:
+                        env.editEnabled = True
+                        print('')
+                        print('You have entered edit mode')
+                        env.reset()
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_UP:
+                        up = False
+                    if event.key == pygame.K_DOWN:
+                        down = False
+                    if event.key == pygame.K_RIGHT:
+                        right = False
+                    if event.key == pygame.K_LEFT:
+                        left = False
+            if up:
+                yDir = -1
+            elif down:
+                yDir = 1
+            if right:
+                xDir = 1
+            elif left:
+                xDir = -1
+            env.step(xDir, yDir)
