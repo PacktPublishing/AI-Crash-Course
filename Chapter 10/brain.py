@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat May  4 17:46:39 2019
-
-@author: janwa
-"""
+#Hardest Game Ever AI: Brain
 
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
