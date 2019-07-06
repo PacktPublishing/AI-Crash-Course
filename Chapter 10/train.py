@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri May  3 13:05:25 2019
-
-@author: janwa
-"""
+#Hardest Game Ever AI: Train
 
 from environment import Environment
 import cv2
