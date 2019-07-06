@@ -1,16 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar  6 20:32:44 2019
-
-@author: janwa
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 11 21:47:05 2019
-
-@author: janwa
-"""
+#Hardest Game Ever AI: Deep Q-Learning memory
 
 import numpy as np
 
