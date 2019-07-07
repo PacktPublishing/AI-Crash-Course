@@ -55,7 +55,7 @@ while True:
         currentState = initializeState(env)
         if not editFromHere:
             brain = Brain(learningRate, (currentState.shape[1], currentState.shape[2], currentState.shape[3]), 9)
-            model = brain.loadModel('model.h5')
+            model = brain.model
         
         while not env.editEnabled:
             epoch += 1
