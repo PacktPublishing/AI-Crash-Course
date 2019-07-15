@@ -7,8 +7,9 @@ import numpy as np
 nLastStates = 4
 filepathToOpen = 'model.h5'
 maxIterations = 40000
+slowdown = 75
 
-env = Environment(0)
+env = Environment(slowdown)
 brain = Brain((env.nRows, env.nColumns, nLastStates))
 model = brain.loadModel(filepathToOpen)
 
