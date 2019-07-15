@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 15 11:23:04 2019
-
-@author: janwa
-"""
+#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Testing AI
 
 from environment import Environment
 from brain import Brain
@@ -12,7 +7,6 @@ import numpy as np
 nLastStates = 4
 filepathToOpen = 'model.h5'
 maxIterations = 40000
-
 
 env = Environment(0)
 brain = Brain((env.nRows, env.nColumns, nLastStates))
