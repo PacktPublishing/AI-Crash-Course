@@ -1,11 +1,9 @@
 #AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Snake's brain
 
-
 import keras
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Flatten
 from keras.optimizers import Adam
-
 
 class Brain():
     
@@ -29,7 +27,6 @@ class Brain():
         
         self.model.compile(loss = 'mean_squared_error', optimizer = Adam(lr = self.learningRate))
         
-
     def loadModel(self, filepath):
         self.model = load_model(filepath)
         return self.model 
