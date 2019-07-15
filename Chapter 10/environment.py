@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  4 11:31:56 2019
-
-@author: janwa
-"""
+#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Game Environment
 
 import numpy as np
 import pygame as pg
