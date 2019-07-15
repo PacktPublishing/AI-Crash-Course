@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  4 12:47:39 2019
-
-@author: janwa
-"""
+#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Snake's brain
 
 
 import keras
