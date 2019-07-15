@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  4 12:45:40 2019
-
-@author: janwa
-"""
+#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Training AI
 
 from environment import Environment
 from brain import Brain
@@ -14,8 +9,8 @@ import matplotlib.pyplot as plt
 
 memSize = 60000
 batchSize = 32
-learningRate = 0.0001
 gamma = 0.9
+learningRate = 0.0001
 nLastStates = 4
 maxIterations = 40000
 
@@ -24,7 +19,6 @@ epsilonDecayRate = 0.0002
 minEpsilon = 0.05
 
 filepathToSave = 'model.h5'
-
 
 env = Environment(0)
 brain = Brain((env.nRows, env.nColumns, nLastStates), learningRate)
