@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar  6 20:32:44 2019
-
-@author: janwa
-"""
-
+#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: DQN memory
 
 import numpy as np
 
