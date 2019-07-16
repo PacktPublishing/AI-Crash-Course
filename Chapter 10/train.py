@@ -1,4 +1,9 @@
-#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Training AI
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul  4 12:45:40 2019
+
+@author: janwa
+"""
 
 from environment import Environment
 from brain import Brain
@@ -9,8 +14,8 @@ import matplotlib.pyplot as plt
 
 memSize = 60000
 batchSize = 32
-gamma = 0.9
 learningRate = 0.0001
+gamma = 0.9
 nLastStates = 4
 maxIterations = 40000
 
@@ -18,7 +23,8 @@ epsilon = 1.
 epsilonDecayRate = 0.0002
 minEpsilon = 0.05
 
-filepathToSave = 'model.h5'
+filepathToSave = 'model2.h5'
+
 
 env = Environment(0)
 brain = Brain((env.nRows, env.nColumns, nLastStates), learningRate)
@@ -41,12 +47,12 @@ epoch = 0
 rewards = list()
 maxNCollected = 0
 nCollected = 0.
-
+totNCollected = 0
 while True:
     env.reset()
     currentState, nextState = resetStates()
     iteration = 0
-    epoch += 1
+    epoch += 1;
     gameOver = False
     
     while iteration < maxIterations and not gameOver: 
@@ -75,22 +81,27 @@ while True:
         
         currentState = nextState
     
+    if nCollected > maxNCollected:
+        maxNCollected = nCollected
+        model.save(filepathToSave)
+    
+    totNCollected += nCollected
+    nCollected = 0
+    
     
     if epoch % 100 == 0 and epoch != 0:
-        rewards.append(nCollected / 100)
-        nCollected = 0
+        rewards.append(totNCollected / 100)
+        totNCollected = 0
         plt.plot(rewards)
         plt.xlabel('Epoch / 100')
         plt.ylabel('Average Collected')
         plt.show()
-        if nCollected > maxNCollected:
-            maxNCollected = nCollected
-            model.save(filepathToSave)
+        
     
     if epsilon > minEpsilon:
         epsilon -= epsilonDecayRate
     
-    print('Epoch: ' + str(epoch) + ' Total Collected: ' + str(nCollected) + ' Epsilon: {:.5f}'.format(epsilon))
+    print('Epoch: ' + str(epoch) + ' Current Best: ' + str(maxNCollected) + ' Epsilon: {:.5f}'.format(epsilon))
 
     
     
