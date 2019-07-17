@@ -81,7 +81,7 @@ while True:
         
         currentState = nextState
     
-    if nCollected > maxNCollected:
+    if nCollected > maxNCollected and nCollected > 2:
         maxNCollected = nCollected
         model.save(filepathToSave)
     
