@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  4 12:45:40 2019
-
-@author: janwa
-"""
+#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Training AI
 
 from environment import Environment
 from brain import Brain
