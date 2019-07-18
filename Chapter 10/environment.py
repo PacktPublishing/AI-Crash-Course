@@ -7,16 +7,15 @@ class Environment():
     
     def __init__(self, waitTime):
         
-        self.width = 880
-        self.height = 880
-        self.nRows = 10
-        self.nColumns = 10
-        self.initSnakeLen = 2
-        self.defReward = -0.03
-        self.negReward = -1.
-        self.posReward = 2.
-        self.waitTime = waitTime
-        
+        self.width = 880            #width of the game window
+        self.height = 880           #height of the game window
+        self.nRows = 10             #number of rows in our board
+        self.nColumns = 10          #number of columns in our board
+        self.initSnakeLen = 2       #initial length of the snake
+        self.defReward = -0.03      #reward for taking an action - The Living Penalty
+        self.negReward = -1.        #reward for dying
+        self.posReward = 2.         #reward for collecting an apple
+        self.waitTime = waitTime    #slowdown after taking an action
         
         if self.initSnakeLen > self.nRows / 2:
             self.initSnakeLen = int(self.nRows / 2)
@@ -33,8 +32,8 @@ class Environment():
         self.applePos = self.placeApple()
         
         self.drawScreen()
-        self.collected = False
         
+        self.collected = False
         self.lastMove = 0
         
     def placeApple(self):
