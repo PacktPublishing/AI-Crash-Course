@@ -42,7 +42,7 @@ totNCollected = 0
 while True:
     env.reset()
     currentState, nextState = resetStates()
-    epoch += 1;
+    epoch += 1
     gameOver = False
     
     while not gameOver: 
