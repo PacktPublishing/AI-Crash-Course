@@ -13,13 +13,11 @@ brain = Brain((env.nRows, env.nColumns, nLastStates))
 model = brain.loadModel(filepathToOpen)
 
 def resetStates():
-    currentState = np.zeros((1, env.nRows, env.nColumns, 1))
+    currentState = np.zeros((1, env.nRows, env.nColumns, nLastStates))
     
     for i in range(nLastStates):
-        state = np.reshape(env.screenMap, (1, env.nRows, env.nColumns, 1))
-        currentState = np.append(currentState, state, axis = 3)
+        currentState[:,:,:,i] = env.screenMap
     
-    currentState = np.delete(currentState, 0, axis = 3)
     
     return currentState, currentState
 
