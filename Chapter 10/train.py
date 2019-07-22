@@ -89,7 +89,7 @@ while True:
         totNCollected = 0
         plt.plot(rewards)
         plt.xlabel('Epoch / 100')
-        plt.ylabel('Average Collected')
+        plt.ylabel('Average Score')
         plt.show()
         
     
