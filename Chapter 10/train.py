@@ -35,7 +35,7 @@ def resetStates():
     return currentState, currentState
 
 epoch = 0
-rewards = list()
+scores = list()
 maxNCollected = 0
 nCollected = 0.
 totNCollected = 0
@@ -79,9 +79,9 @@ while True:
     
     
     if epoch % 100 == 0 and epoch != 0:
-        rewards.append(totNCollected / 100)
+        scores.append(totNCollected / 100)
         totNCollected = 0
-        plt.plot(rewards)
+        plt.plot(scores)
         plt.xlabel('Epoch / 100')
         plt.ylabel('Average Score')
         plt.show()
