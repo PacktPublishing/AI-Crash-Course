@@ -6,7 +6,6 @@ import numpy as np
 
 nLastStates = 4
 filepathToOpen = 'model.h5'
-maxIterations = 40000
 slowdown = 75
 
 env = Environment(slowdown)
@@ -28,9 +27,7 @@ while True:
     env.reset()
     currentState, nextState = resetStates()
     gameOver = False
-    iteration = 0
-    while iteration < maxIterations and not gameOver: 
-        iteration += 1
+    while not gameOver: 
         
         qvalues = model.predict(currentState)[0]
         action = np.argmax(qvalues)
