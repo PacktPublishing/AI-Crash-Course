@@ -12,7 +12,6 @@ batchSize = 32
 learningRate = 0.0001
 gamma = 0.9
 nLastStates = 4
-maxIterations = 40000
 
 epsilon = 1.
 epsilonDecayRate = 0.0002
@@ -46,12 +45,10 @@ totNCollected = 0
 while True:
     env.reset()
     currentState, nextState = resetStates()
-    iteration = 0
     epoch += 1;
     gameOver = False
     
-    while iteration < maxIterations and not gameOver: 
-        iteration += 1
+    while not gameOver: 
         
         if np.random.rand() < epsilon:
             action = np.random.randint(0, 4)
