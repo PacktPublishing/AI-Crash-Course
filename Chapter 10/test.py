@@ -17,8 +17,7 @@ def resetStates():
     
     for i in range(nLastStates):
         currentState[:,:,:,i] = env.screenMap
-    
-    
+   
     return currentState, currentState
 
 while True:
