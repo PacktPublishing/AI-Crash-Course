@@ -84,7 +84,8 @@ while True:
         plt.plot(scores)
         plt.xlabel('Epoch / 100')
         plt.ylabel('Average Score')
-        plt.show()
+        plt.savefig('stats.png')
+        plt.close()
         
     
     if epsilon > minEpsilon:
