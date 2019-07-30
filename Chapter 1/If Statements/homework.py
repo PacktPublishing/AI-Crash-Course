@@ -1,4 +1,4 @@
-#Exercise for If Statements: Homework Solution
+# Exercise for If Statements: Homework Solution
 
 a = 12                                          # we will check the divisibility of this number by 3
 
