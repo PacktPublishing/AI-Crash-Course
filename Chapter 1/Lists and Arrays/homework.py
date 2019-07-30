@@ -1,4 +1,4 @@
-#Exercise for Lists and Arrays: Homework Solution
+# Exercise for Lists and Arrays: Homework Solution
 
 import numpy as np                          # we import the Numpy library and give it abbreviation "np"
 
