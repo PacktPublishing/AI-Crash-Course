@@ -1,4 +1,4 @@
-#Introduction to Displaying Text
+# Introduction to Displaying Text
 
-#Displaying text
+# Displaying text
 print('Hello world!')
