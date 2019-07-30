@@ -49,7 +49,6 @@ while True:
         else:
             qvalues = model.predict(currentState)[0]
             action = np.argmax(qvalues)
-    
         
         state, reward, gameOver = env.step(action)
         
