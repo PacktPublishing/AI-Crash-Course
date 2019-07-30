@@ -27,7 +27,7 @@ class Brain():
         self.model.add(Dense(units = self.numOutputs))
         
         self.model.compile(loss = 'mean_squared_error', optimizer = Adam(lr = self.learningRate))
-        
+    
     def loadModel(self, filepath):
         self.model = load_model(filepath)
         return self.model
