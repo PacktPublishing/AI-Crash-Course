@@ -169,8 +169,7 @@ class Environment():
         pg.time.wait(self.waitTime)
         
         return self.screenMap, reward, gameOver
-            
-            
+    
     def reset(self):
         self.screenMap  = np.zeros((self.nRows, self.nColumns))
         self.snakePos = list()
