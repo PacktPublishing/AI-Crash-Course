@@ -1,4 +1,4 @@
-#Introduction to Functions
+# Introduction to Functions
 
 def division(a, b):
     result = a / b
