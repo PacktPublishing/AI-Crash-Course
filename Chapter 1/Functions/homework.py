@@ -1,4 +1,4 @@
-#Exercise for Functions: Homework Solution
+# Exercise for Functions: Homework Solution
 
 def distance(x1, y1, x2, y2):                       # we create a new function "distance" that takes coordinates of both points as arguments
     d = pow(pow(x1 - x2, 2) + pow(y1 - y2, 2), 0.5) # we calculate the distance between two points using the formula provided in the hint ("pow" function is power)
