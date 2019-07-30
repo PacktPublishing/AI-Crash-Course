@@ -1,4 +1,4 @@
-#Introduction to Lists and Arrays
+# Introduction to Lists and Arrays
 
 L1 = list()
 L2 = []
