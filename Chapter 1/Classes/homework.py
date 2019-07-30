@@ -16,4 +16,3 @@ car = Car(75, 3.5)                                              # we create an o
                                                                 # we need to input two arguments: top speed and acceleration
 time = car.calcTime(30)                                         # we calculate the time required to accelerate from 30 m/s to 75 m/s using the "calcTime" method
 print(time)                                                     # and in the end we can finally display this time
-
