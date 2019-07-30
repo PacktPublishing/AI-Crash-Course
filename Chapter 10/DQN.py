@@ -1,4 +1,4 @@
-#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: DQN memory
+# AI for Snake using Deep Q-Learning and Convolutional Neural Networks: DQN memory
 
 import numpy as np
 
