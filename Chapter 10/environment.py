@@ -1,4 +1,4 @@
-# AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Game Environment
+# AI for Snake using Deep Q-Learning and Convolutional Neural Networks: the Game Environment
 
 import numpy as np
 import pygame as pg
@@ -46,7 +46,6 @@ class Environment():
         self.screenMap[posy][posx] = 1
         
         return (posy, posx)
-    
     
     def drawScreen(self):
         
@@ -193,7 +192,6 @@ if __name__ == '__main__':
     while True:
         state = env.screenMap
         pos = env.snakePos
-        
         
         for event in pg.event.get():
             if event.type == pg.QUIT:
