@@ -9,7 +9,7 @@ for element in L3:
 
 stop = False
 i = 0
-while stop == False:  # Alternatively it can be "while not stop:"
+while stop == False:  # alternatively it can be "while not stop:"
     i += 1
     print(i)
     if i >= 19:
