@@ -7,4 +7,4 @@ if a % 3 == 0:                                  # we check if a is divisible by 
 else:                                           # we enter this condtition, if the number is not divisible by 3
     print(str(a) + ' is not divisible by 3')    # then we display that indeed this number is not divisible by 3
 
-# NOTE: str() function let's us display a variable followed by a text, it changes this integer number "a" to a text
+# NOTE: str() function lets us display a variable followed by a text, it changes this integer number "a" to a text
