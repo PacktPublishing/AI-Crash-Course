@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jun 18 19:41:08 2019
-
-@author: janwa
-"""
+# Comparison
 
 import numpy as np
 import pandas as pd
