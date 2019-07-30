@@ -1,4 +1,4 @@
-#Exercise for Variables: Homework Solution
+# Exercise for Variables: Homework Solution
 
 a = 3               # we will raise this number to a power
 b = 4               # this is the power to which we will raise "a"
