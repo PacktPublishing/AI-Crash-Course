@@ -1,4 +1,4 @@
-#AI for Snake using Deep Q-Learning and Convolutional Neural Networks: Snake's brain
+# AI for Snake using Deep Q-Learning and Convolutional Neural Networks: the Snake's brain
 
 import keras
 from keras.models import Sequential, load_model
@@ -8,6 +8,7 @@ from keras.optimizers import Adam
 class Brain():
     
     def __init__(self, iS = (100,100,3), lr = 0.0005):
+        
         self.learningRate = lr
         self.inputShape = iS
         self.numOutputs = 4
@@ -29,4 +30,4 @@ class Brain():
         
     def loadModel(self, filepath):
         self.model = load_model(filepath)
-        return self.model 
+        return self.model
