@@ -215,4 +215,3 @@ if __name__ == '__main__':
         if gameOver:
             env.reset()
             direction = 0
-    
