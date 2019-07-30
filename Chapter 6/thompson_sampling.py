@@ -50,7 +50,7 @@ for n in range(0, N):
 relative_return = (total_reward_ts - total_reward_rs) / total_reward_rs * 100
 print("Relative Return: {:.0f} %".format(relative_return))
 
-# Plotting the Histogram of Strategy Selections
+# Plotting the Histogram of Selections
 plt.hist(strategies_selected_ts)
 plt.title('Histogram of Selections')
 plt.xlabel('Strategy')
