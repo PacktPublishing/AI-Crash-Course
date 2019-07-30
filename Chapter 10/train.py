@@ -6,7 +6,6 @@ from DQN import Dqn
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 memSize = 60000
 batchSize = 32
 learningRate = 0.0001
@@ -19,12 +18,10 @@ minEpsilon = 0.05
 
 filepathToSave = 'model2.h5'
 
-
 env = Environment(0)
 brain = Brain((env.nRows, env.nColumns, nLastStates), learningRate)
 model = brain.model
 dqn = Dqn(memSize, gamma)
-
 
 def resetStates():
     currentState = np.zeros((1, env.nRows, env.nColumns, nLastStates))
@@ -55,7 +52,6 @@ while True:
     
         
         state, reward, gameOver = env.step(action)
-
         
         state = np.reshape(state, (1, env.nRows, env.nColumns, 1))
         nextState = np.append(nextState, state, axis = 3)
@@ -77,7 +73,6 @@ while True:
     totNCollected += nCollected
     nCollected = 0
     
-    
     if epoch % 100 == 0 and epoch != 0:
         scores.append(totNCollected / 100)
         totNCollected = 0
@@ -86,12 +81,8 @@ while True:
         plt.ylabel('Average Score')
         plt.savefig('stats.png')
         plt.close()
-        
     
     if epsilon > minEpsilon:
         epsilon -= epsilonDecayRate
     
     print('Epoch: ' + str(epoch) + ' Current Best: ' + str(maxNCollected) + ' Epsilon: {:.5f}'.format(epsilon))
-
-    
-    
