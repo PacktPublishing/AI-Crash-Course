@@ -1,12 +1,15 @@
 # AI for Snake using Deep Q-Learning and Convolutional Neural Networks: the Game Environment
 
+# Importing the libraries
 import numpy as np
 import pygame as pg
 
+# Initializing the Environment class
 class Environment():
     
     def __init__(self, waitTime):
         
+        # Defining the parametrs
         self.width = 880            # width of the game window
         self.height = 880           # height of the game window
         self.nRows = 10             # number of rows in our board
@@ -23,6 +26,8 @@ class Environment():
         self.screen = pg.display.set_mode((self.width, self.height))
         
         self.snakePos = list()
+        
+        # Creating the array that contains mathematical representation of the game's board
         self.screenMap = np.zeros((self.nRows, self.nColumns))
         
         for i in range(self.initSnakeLen):
@@ -35,7 +40,8 @@ class Environment():
         
         self.collected = False
         self.lastMove = 0
-        
+    
+    # Building a method that gets new, random position of an apple
     def placeApple(self):
         posx = np.random.randint(0, self.nColumns)
         posy = np.random.randint(0, self.nRows)
@@ -47,6 +53,7 @@ class Environment():
         
         return (posy, posx)
     
+    # Making a function that draws everything for us to see
     def drawScreen(self):
         
         self.screen.fill((0, 0, 0))
@@ -62,7 +69,8 @@ class Environment():
                     pg.draw.rect(self.screen, (255, 0, 0), (j*cellWidth + 1, i*cellHeight + 1, cellWidth - 2, cellHeight - 2))
                     
         pg.display.flip()
-      
+    
+    # A method that updates the snake's position
     def moveSnake(self, nextPos, col):
         
         self.snakePos.insert(0, nextPos)
@@ -80,12 +88,15 @@ class Environment():
             self.collected = True
             
         self.screenMap[self.applePos[0]][self.applePos[1]] = 1
-        
+    
+    # The main method that updates the environment
     def step(self, action):
         # action = 0 -> up
         # action = 1 -> down
         # action = 2 -> right
         # action = 3 -> left
+        
+        # Resetting these parameters and setting the reward to the living penalty
         gameOver = False
         reward = self.defReward
         self.collected = False
@@ -97,6 +108,7 @@ class Environment():
         snakeX = self.snakePos[0][1]
         snakeY = self.snakePos[0][0]
         
+        # Checking if an action is playable and if not then it is changed to the playable one
         if action == 1 and self.lastMove == 0:
             action = 0
         if action == 0 and self.lastMove == 1:
@@ -106,6 +118,7 @@ class Environment():
         if action == 2 and self.lastMove == 3:
             action = 3
         
+        # Checking what happens when we take this action
         if action == 0:
             if snakeY > 0:
                 if self.screenMap[snakeY - 1][snakeX] == 0.5:
@@ -161,15 +174,18 @@ class Environment():
             else:
                 gameOver = True
                 reward = self.negReward
-                
+        
+        # Drawing the screen, updating last move and waiting the wait time we want
         self.drawScreen()
         
         self.lastMove = action
         
         pg.time.wait(self.waitTime)
         
+        # Returning the new frame of the game, the reward obtained and whether the game has ended or not
         return self.screenMap, reward, gameOver
     
+    # Making a function that resets the environment
     def reset(self):
         self.screenMap  = np.zeros((self.nRows, self.nColumns))
         self.snakePos = list()
@@ -182,6 +198,8 @@ class Environment():
         
         self.lastMove = 0
 
+# Additional code, actually not mentioned in the book, simply enables you to play the game on your own if you run this "environment.py" file. 
+# We don't really need it, that's why it was not mentioned. 
 if __name__ == '__main__':        
     env = Environment(100)
     start = False
