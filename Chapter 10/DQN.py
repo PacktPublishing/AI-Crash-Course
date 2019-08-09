@@ -25,7 +25,10 @@ class Dqn(object):
     def get_batch(self, model, batch_size = 10):
         len_memory = len(self.memory)
         num_outputs = model.output_shape[-1]
+        
+        # Modifying the inputs batch to work with 3D states
         inputs = np.zeros((min(len_memory, batch_size), self.memory[0][0][0].shape[1],self.memory[0][0][0].shape[2],self.memory[0][0][0].shape[3]))
+        
         targets = np.zeros((min(len_memory, batch_size), num_outputs))
         for i, idx in enumerate(np.random.randint(0, len_memory, size = min(len_memory, batch_size))):
             current_state, action, reward, next_state = self.memory[idx][0]
