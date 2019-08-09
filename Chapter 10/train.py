@@ -57,7 +57,7 @@ while True:
         nextState = np.delete(nextState, 0, axis = 3)
         
         dqn.remember([currentState, action, reward, nextState], gameOver)
-        inputs, targets = dqn.getBatch(model, batchSize)
+        inputs, targets = dqn.get_batch(model, batchSize)
         model.train_on_batch(inputs, targets)
         
         if env.collected:
