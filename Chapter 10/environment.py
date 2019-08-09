@@ -9,7 +9,7 @@ class Environment():
     
     def __init__(self, waitTime):
         
-        # Defining the parametrs
+        # Defining the parameters
         self.width = 880            # width of the game window
         self.height = 880           # height of the game window
         self.nRows = 10             # number of rows in our board
@@ -175,7 +175,7 @@ class Environment():
                 gameOver = True
                 reward = self.negReward
         
-        # Drawing the screen, updating last move and waiting the wait time we want
+        # Drawing the screen, updating last move and waiting the wait time specified
         self.drawScreen()
         
         self.lastMove = action
