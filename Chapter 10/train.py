@@ -71,7 +71,7 @@ while True:
         inputs, targets = dqn.get_batch(model, batchSize)
         model.train_on_batch(inputs, targets)
         
-        # Checking whether we have collected an apple and updating current state to next state
+        # Checking whether we have collected an apple and updating the current state
         if env.collected:
             nCollected += 1
         
