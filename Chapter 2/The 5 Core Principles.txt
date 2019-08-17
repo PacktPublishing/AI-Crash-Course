@@ -30,13 +30,9 @@ def markov_decision_process_training():
 	ai = AI() 
 	while True:
 		state_of_the_game = env.get_observation()
-		
 		action = ai.play_action(state_of_the_game)
-		
 		reward = env.get_reward(action)
-		
 		ai.train(state_of_the_game, reward)
-		
 		env.update(action)
 
 def markov_decision_process_inference():
@@ -44,16 +40,5 @@ def markov_decision_process_inference():
 	ai = AI() 
 	while True:
 		state_of_the_game = env.get_observation()
-		
 		action = ai.play_action(state_of_the_game)
-		
 		env.update(action)
-
-		
-				
-
-
-
-
-
-
