@@ -1,3 +1,5 @@
+# The 5 Core Principles Pseudocode
+
 class Environment():
 
 	def __init__(self):
@@ -13,6 +15,7 @@ class Environment():
 		Update the environment based on the action specified
 
 class AI():
+
 	def __init__(self):
 		Initialize the AI
 	
