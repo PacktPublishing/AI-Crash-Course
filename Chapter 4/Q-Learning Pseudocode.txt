@@ -50,7 +50,3 @@ while True:
 	TD = env.calculate_TD(qvalue, next_state, reward, gamma)
 
 	env.update_qvalue(TD, qvalue, alpha)
-
-
-	
-	
