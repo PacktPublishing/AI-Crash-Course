@@ -1,4 +1,4 @@
-# AI for Snake
+# AI for Games - Beat the Snake game
 # Building the Environment
 
 # Importing the libraries
