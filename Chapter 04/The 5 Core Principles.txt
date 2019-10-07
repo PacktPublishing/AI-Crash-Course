@@ -1,0 +1,44 @@
+# The 5 Core Principles Pseudocode
+
+class Environment():
+
+	def __init__(self):
+		Initialize the game
+	
+	def get_observation(self):
+		Return the state of the game 
+	
+	def get_reward(self, action):
+		Return the reward obtained by playing this action
+	
+	def update(self, action):
+		Update the environment based on the action specified
+
+class AI():
+
+	def __init__(self):
+		Initialize the AI
+	
+	def train(self, state_of_the_game, reward):
+		Train the AI based on the state of the game and the reward obtained
+
+	def play_action(self, state_of_the_game):
+		Play an action based on the state of the game
+
+def markov_decision_process_training():
+	env = Environment()
+	ai = AI() 
+	while True:
+		state_of_the_game = env.get_observation()
+		action = ai.play_action(state_of_the_game)
+		reward = env.get_reward(action)
+		ai.train(state_of_the_game, reward)
+		env.update(action)
+
+def markov_decision_process_inference():
+	env = Environment()
+	ai = AI() 
+	while True:
+		state_of_the_game = env.get_observation()
+		action = ai.play_action(state_of_the_game)
+		env.update(action)

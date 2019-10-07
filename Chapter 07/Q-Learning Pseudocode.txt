@@ -1,0 +1,52 @@
+class Environment():
+
+	def __init__(self):
+		Initialize the Environment
+	
+	def get_random_state(self):
+		Return a random possible state of the game
+	
+	def get_qvalue(self, random_state, action):
+		Return the Q-value of this random_state, action couple	
+
+	def update(self, action):
+		Update the environment, reach the next state and return the Q-values of this new state
+
+	def get_reward(self, random_state, action):
+		Return the reward obtained by playing this action from this random possible state
+	
+	def calculate_TD(self, qvalue, next_state, reward, gamma):
+		Return the calculated Temporal Difference using the equation: TD = reward + gamma*max(qvalues_next_state) - qvalue
+
+	def update_qvalue(self, TD, qvalue, alpha):
+		Update the qvalue specified as argument using the equation: qvalue = qvalue + alpha * TD
+
+class AI():
+	
+	def __init__(self):
+		Initialize the AI
+
+	def play_action(self):
+		Play a random action												##
+
+
+env = Environment()
+ai = AI()
+
+Initialize gamma
+Initialize alpha
+
+while True:
+	random_state = env.get_random_state()
+
+	action = ai.play_action()
+	
+	qvalue = env.get_qvalue(random_state, action)
+
+	next_state = env.update(action)
+
+	reward = env.get_reward(random_state, action)
+
+	TD = env.calculate_TD(qvalue, next_state, reward, gamma)
+
+	env.update_qvalue(TD, qvalue, alpha)
