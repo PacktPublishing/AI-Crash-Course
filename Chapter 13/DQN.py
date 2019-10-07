@@ -1,4 +1,4 @@
-# AI for Snake
+# AI for Games - Beat the Snake game
 # Implementing Deep Q-Learning with Experience Replay
 
 # Importing the libraries
