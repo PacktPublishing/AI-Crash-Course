@@ -58,7 +58,7 @@ class Dqn(object):
     
     def select_action(self, state):
         probs = F.softmax(self.model(Variable(state))*100)
-        action = probs.multinomial()
+        action = probs.multinomial(len(probs))
         return action.data[0,0]
     
     def learn(self, batch_states, batch_actions, batch_rewards, batch_next_states):
